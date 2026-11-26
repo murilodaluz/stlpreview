@@ -22,7 +22,17 @@ Desktop previewer for `.stl` and `.3mf` files, built with Tauri 2. Pick a folder
 - The last folder is reopened from its cache on startup, without scanning.
 - Dark theme only.
 
-## Requirements
+## Install
+
+Download a package from the Releases page. None of them need Node, pnpm or Rust.
+
+- `sltpreview_<version>_amd64.AppImage`: any x86_64 Linux with glibc 2.35 or newer. `chmod +x` it and run it. It does not add a launcher entry on its own.
+- `sltpreview_<version>_amd64.deb`: Debian and Ubuntu. `sudo apt install ./sltpreview_<version>_amd64.deb` also installs the launcher entry and icon.
+- `sltpreview_<version>_x64-setup.exe`: Windows installer.
+
+The Windows build compiles but has not been run. OrcaSlicer auto-detection only knows Linux locations, so on Windows set its path in Settings.
+
+## Build requirements
 
 - Rust 1.88 or newer (edition 2024, let chains).
 - Node.js `^20.19.0 || >=22.12.0` (required by Vite 8) and pnpm.
@@ -73,6 +83,7 @@ src-tauri/src/                  Rust backend: scan, mesh loading, rendering, cac
 src-tauri/icons/                icons generated from app-icon.svg
 scripts/make_fixtures.py        sample library generator
 scripts/install-desktop-entry.sh  per-user launcher entry and icons
+.github/workflows/release.yml   release packages built on GitHub Actions
 PLAN.md                         design notes and command contract
 ```
 
@@ -90,3 +101,17 @@ Regenerates `fixtures/library`, a sample root with nested folders, ASCII and bin
 cd src-tauri && cargo test
 pnpm build
 ```
+
+## Releasing
+
+`.github/workflows/release.yml` builds the packages on GitHub Actions.
+
+1. Set the same version in `src-tauri/tauri.conf.json`, `src-tauri/Cargo.toml` and `package.json`, and commit.
+2. Tag it and push:
+
+```
+git tag v0.1.0
+git push origin main --tags
+```
+
+A `v*` tag builds the AppImage, the `.deb` and the Windows installer and attaches them to a GitHub Release for that tag. The run fails if the tag does not match the version in `tauri.conf.json`. Starting the workflow by hand from the Actions tab builds the same packages and leaves them as artifacts on the run, without creating a release.
