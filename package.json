@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "tauri": "tauri"
+    "tauri": "tauri",
+    "icons": "tauri icon app-icon.svg",
+    "install:desktop": "bash scripts/install-desktop-entry.sh"
   },
   "dependencies": {
     "@tauri-apps/api": "^2",
