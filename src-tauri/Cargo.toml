@@ -1,8 +1,8 @@
 [package]
 name = "sltpreview"
 version = "0.1.0"
-description = "A Tauri App"
-authors = ["you"]
+description = "Desktop previewer for STL and 3MF files"
+authors = ["Murilo da luz"]
 edition = "2024"
 
 [lib]

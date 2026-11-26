@@ -32,6 +32,9 @@
   "bundle": {
     "active": true,
     "targets": "all",
+    "category": "GraphicsAndDesign",
+    "shortDescription": "Desktop previewer for STL and 3MF files",
+    "longDescription": "Renders a PNG preview for every STL and 3MF model in a folder, shows them in a folder tree and grid, and opens them in OrcaSlicer.",
     "icon": [
       "icons/128x128@2x.png",
       "icons/128x128.png",
