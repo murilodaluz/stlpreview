@@ -101,17 +101,3 @@ Regenerates `fixtures/library`, a sample root with nested folders, ASCII and bin
 cd src-tauri && cargo test
 pnpm build
 ```
-
-## Releasing
-
-`.github/workflows/release.yml` builds the packages on GitHub Actions.
-
-1. Set the same version in `src-tauri/tauri.conf.json`, `src-tauri/Cargo.toml` and `package.json`, and commit.
-2. Tag it and push:
-
-```
-git tag v0.1.0
-git push origin main --tags
-```
-
-A `v*` tag builds the AppImage, the `.deb` and the Windows installer and attaches them to a GitHub Release for that tag. The run fails if the tag does not match the version in `tauri.conf.json`. Starting the workflow by hand from the Actions tab builds the same packages and leaves them as artifacts on the run, without creating a release.
