@@ -101,3 +101,9 @@ Regenerates `fixtures/library`, a sample root with nested folders, ASCII and bin
 cd src-tauri && cargo test
 pnpm build
 ```
+## Screenshots
+
+<img width="1040" height="645" alt="image" src="https://github.com/user-attachments/assets/0faf051d-cba2-46f7-8a07-83893e53f15f" />
+<img width="1035" height="641" alt="image" src="https://github.com/user-attachments/assets/52183021-6f74-43dd-ad4d-f7cafa3955d6" />
+<img width="1037" height="644" alt="image" src="https://github.com/user-attachments/assets/a2b1b5e9-8731-42cd-8bc0-01b7e5304ca5" />
+
